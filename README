@@ -1,0 +1,25 @@
+THIS IS HIGHLY EXPERIMENTAL
+USE AT YOUR OWN RISK
+
+WORK IN PROGRESS
+
+This will control a KA3005P lab power supply
+
+The device is hard coded (this is my default usb->serial device on raspi): /dev/ttyACM0
+
+I've used quite a few modules (maybe too many), the only one a bit off-the-beaten-track should be https://github.com/magmax/python-readchar
+
+Usage:
+
+run kcontrol.py
+It will output every 1.x seconds or so (there are some "hard" coded timers that can be easily changed) something like:
+
+44mA 5.00V 0.22000W 0.25496mWh 0.050993mAh 4.3s SET:700mA 5.00V
+
+As the power supply is locked for many seconds after any serial command I have added the following rudimentary controls:
+
+v V lower v is voltage "-0.01", V, as in shift+v is +"0.01"
+i I current down and up
+o O output off/on
+q quit
+
